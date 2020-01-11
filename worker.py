@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # print(s.results.dict())
     print('storing results...')
     result = SpeedtestResult(s)
-    # result.save(coll)
+    result.save(coll)
 
     if last_one is not None:
         up_diff = result.upload - last_one.upload
