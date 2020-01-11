@@ -6,16 +6,16 @@ import settings
 
 
 def size_scale(n_bytes):
-    units = ['', 'K', 'M', 'G', 'T']
+    units = ['', 'k', 'm', 'g', 't']
     times = 0
     scaled_size = n_bytes + 0
     while times < len(units):
-        if scaled_size < 1000:
+        if abs(scaled_size) < 1000:
             break
         scaled_size /= 1024
         times += 1
 
-    return '{:.2f}{}B'.format(scaled_size, units[times])
+    return '{:.2f}{}bps'.format(scaled_size, units[times])
 
 
 class SpeedtestResult:
@@ -25,7 +25,7 @@ class SpeedtestResult:
         else:
             self._data = data
 
-        if data:
+        if data and isinstance(self._data['timestamp'], str):
             self._data['timestamp'] = datetime.strptime(self._data['timestamp'], '%Y-%m-%dT%H:%M:%S.%fZ')
 
     def __str__(self):
