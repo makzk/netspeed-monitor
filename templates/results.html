@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
+          integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous" />
+  </head>
+  <body>
+  {% raw %}
+  <section class="section" id="app">
+    <div class="container">
+      <h2 class="title">
+        Resultados Speedtest
+      </h2>
+      <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>Download</th>
+          <th>Upload</th>
+          <th>Ping</th>
+          <th>DnDiff</th>
+          <th>UpDiff</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="result in results">
+          <td>{{ result.download_human }}</td>
+          <td>{{ result.upload_human }}</td>
+          <td>{{ result.ping }}</td>
+          <td>{{ result.download_diff_human }}</td>
+          <td>{{ result.upload_diff_human }}</td>
+          <td>{{ result.timestamp }}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </section>
+  {% endraw %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"
+          integrity="sha256-chlNFSVx3TdcQ2Xlw7SvnbLAavAQLO0Y/LBiWX04viY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"
+          integrity="sha256-Hhwv1ElzvrH6ZuiIDWEO6xBYW3lmFYrapwcjgXhpL6g=" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='results.js') }}"></script>
+  </body>
+</html>
