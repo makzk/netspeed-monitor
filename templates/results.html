@@ -15,29 +15,35 @@
         Resultados Speedtest
       </h2>
 
-      <canvas id="chart" width="400" height="200"></canvas>
-      <table class="ui celled table">
-      <thead>
-        <tr>
-          <th>Download</th>
-          <th>Upload</th>
-          <th>Ping</th>
-          <th>DnDiff</th>
-          <th>UpDiff</th>
-          <th>Timestamp</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="result in results">
-          <td>{{ result.download_human }}</td>
-          <td>{{ result.upload_human }}</td>
-          <td>{{ result.ping }}</td>
-          <td>{{ result.download_diff_human }}</td>
-          <td>{{ result.upload_diff_human }}</td>
-          <td>{{ result.timestamp }}</td>
-        </tr>
-      </tbody>
-      </table>
+      <div class="columns">
+        <div class="column is-half">
+          <canvas id="chart" width="400" height="400"></canvas>
+        </div>
+        <div class="column is-half">
+          <table class="ui celled table">
+          <thead>
+            <tr>
+              <th>Download</th>
+              <th>Upload</th>
+              <th>Ping</th>
+              <th>DnDiff</th>
+              <th>UpDiff</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="result in results">
+              <td>{{ result.download_human }}</td>
+              <td>{{ result.upload_human }}</td>
+              <td>{{ result.ping }}</td>
+              <td>{{ result.download_diff_human }}</td>
+              <td>{{ result.upload_diff_human }}</td>
+              <td>{{ result.timestamp }}</td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
   {% endraw %}
